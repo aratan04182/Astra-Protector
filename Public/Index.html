@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Safe Web Proxy</title>
+
+<style>
+body{
+    font-family:sans-serif;
+    text-align:center;
+    margin-top:100px;
+}
+
+input{
+    width:500px;
+    padding:10px;
+}
+
+button{
+    padding:10px 20px;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Safe Web Proxy</h1>
+
+<input
+    id="urlInput"
+    type="text"
+    placeholder="https://example.com"
+>
+
+<button onclick="openSite()">
+    Open
+</button>
+
+<script>
+function openSite() {
+    const url =
+        document.getElementById("urlInput").value;
+
+    if (!url) {
+        alert("URLを入力してください");
+        return;
+    }
+
+    window.location.href =
+        "/proxy?url=" +
+        encodeURIComponent(url);
+}
+</script>
+
+</body>
+</html>
